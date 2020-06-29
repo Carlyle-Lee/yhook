@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = ['jni']
+            res.srcDirs = ['res']
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            moduleName "yhook"         //生成的so名字
+            abiFilters "armeabi-v7a", "x86", 'arm64-v8a'  //输出指定三种abi体系结构下的so库。
+        }
+        externalNativeBuild {
+            ndkBuild {
+                abiFilters 'armeabi-v7a', 'x86', 'arm64-v8a'
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compileOnly "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+}
+
+apply plugin: 'maven'
+
+// please config maven repo info in your global gradle.properties
+// do not upload to the git chunk
+
+
+version = "${sdkVersion}"
+group = GROUP
+
+uploadArchives {
+
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+
+        repository(url: "${mavenRepoUrl}")
+
+        pom.project {
+            name POM_NAME
+            artifactId POM_ARTIFACT_ID
+            packaging POM_PACKAGING
+            description POM_DESCRIPTION
+        }
+
+        pom.whenConfigured { pom ->
+            pom.dependencies.removeAll hasProperty('DEPENDENCIES_REMOVER') ? property('DEPENDENCIES_REMOVER') : { dep ->
+                // remove project deps
+                dep.groupId == rootProject.name
+            }
+        }
+    }
+}

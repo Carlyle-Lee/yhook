@@ -1,0 +1,4 @@
+lensSDK  and  compile Hook SDK are compile only
+how to compile :
+call rebuild prokect
+mv jar from lenssdk/build/intermediates/bundles/

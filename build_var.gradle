@@ -1,0 +1,23 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+ext {
+    compileSdkVersion = 29
+    buildToolsVersion = '28.0.3'
+    minSdkVersion = 14
+    targetSdkVersion = 29
+    supportLibVersion = '26.1.0'
+    sdkVersion = '1.0.5.5'
+    okhttpVersion = '3.12.10'
+    mavenLocal = false
+    annotationVersion = '0.0.5.1'
+    mavenRepoUrl = ''
+    taskMonitorVersion = '0.0.8'
+    yhookVersion='1.0.4.9'
+
+    mavenRepo = [
+    ]
+
+}
+
+
+

@@ -6,24 +6,28 @@
 
 ##### Introduction
 * Support method hook on OS greater than 5.0.
-* Support loading hook plug-in under asset directory.
+* Support loading hook plug-in under `assets` directory.
 * Support loading hook plug-ins with specific paths.
 As method hook may not be stable , and `YAHFA` is GPL 3.0 license , we suggest using this in debug mode.
 
 ##### Setup
-	will come soon in jcenter
+```Groovy
+	dependencies {
+	   implementation 'carl.lee.lens:lens-yhook:1.0.5'
+	}
+```
 
 ##### Usage
 1. Generate hook plug-in：
 	*  Please refer to `ViewTouchHook` in `hookapi` model for instance.
 	*  You may use hook plug-in model to compile hook `apk`.
 2. Use hook plug-in:
-	* Inner plug-in ：Put the plug-in `apk` under assets directory，and rename it to `hookplugin.apk`.
-	* Outer plug-in ：
+	* Build-In plug-in ：Put the plug-in `apk` under assets directory，and rename it to `hookplugin.apk`.
+	* Outside  plug-in ：
 		```Java HookWrapper.addCustomHookPluginPath(String path);```
 3. Support Lens hook：
-	Please refer to `HookFrameworkImpl` under `app` model. 　Call ```LensUtil.buildConfig().setHookFrameWorkImpl(new HookFramework())``` to set HookFramework for Lens.  
-	
+	Please refer to `HookFrameworkImpl` under `app` model. 　Call ```LensUtil.buildConfig().setHookFrameWorkImpl(new HookFramework())``` to set HookFramework for Lens. 
+	 
 ##### License
 GNU GPL V3
 

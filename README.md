@@ -1,4 +1,4 @@
-###### 这是用于支持Lens hook 能力的java 方法Hook 框架。实现了Lens IHookFrameWork接口。支持加载内置hook插件或多个自定义hook 方法插件。支持5.0~10.0系统。 
+###### 这是一个ART method hook 框架，支持5.0~10.0系统。实现了Lens IHookFrameWork接口，可用于支持Lens 的一些高级功能。支持加载内置hook插件或多个外置hook 插件。 
 
 ##### 引用：
 	1.yhook：https://github.com/Tencent/GT/tree/master/android/GT_SDK/yhook
@@ -11,7 +11,11 @@
 由于稳定性、可靠性、开源协议的问题，建议在debug阶段开发模式下使用。
 
 ##### 安装
-	即将提交jcenter
+```Groovy
+	dependencies {
+	   implementation 'carl.lee.lens:lens-yhook:1.0.5'
+	}
+```
 
 ##### 使用
 1. 制作hook 插件：

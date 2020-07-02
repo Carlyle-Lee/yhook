@@ -2,7 +2,7 @@ package com.carlyle.lee.yhook;
 
 import android.content.Context;
 
-import com.carl.hook.utils.HookWrapper;
+import com.lens.hook.utils.HookWrapper;
 
 /**
  * HookFrameworkImpl 参考实现 设置后 lens 支持hook 功能；

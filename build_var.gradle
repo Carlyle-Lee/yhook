@@ -6,7 +6,7 @@ ext {
     minSdkVersion = 14
     targetSdkVersion = 29
     supportLibVersion = '26.1.0'
-    sdkVersion = '1.0.5.5'
+    sdkVersion = '1.0.5.7'
     okhttpVersion = '3.12.10'
     mavenLocal = false
     annotationVersion = '0.0.5.1'

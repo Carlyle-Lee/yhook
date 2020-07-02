@@ -1,4 +1,4 @@
-package com.carl.hook.utils;
+package com.lens.hook.utils;
 
 import android.content.Context;
 import android.os.Build;

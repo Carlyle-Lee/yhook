@@ -13,7 +13,7 @@
 ##### 安装
 ```Groovy
 	dependencies {
-	   implementation 'carl.lee.lens:lens-yhook:1.0.5'
+	   debugImplementation 'carl.lee.yhook:lens-yhook:1.1.0'
 	}
 ```
 
